@@ -15,7 +15,7 @@ jobs:
           node-version: 24
           cache: 'pnpm'
       - name: Install dependencies
-        run: pnpm install
+        run: npm i --global pnpm && pnpm install
       - name: Run lint
         run: pnpm lint
       - name: Run format check
@@ -30,7 +30,7 @@ jobs:
           node-version: 24
           cache: 'pnpm'
       - name: Install dependencies
-        run: pnpm install
+        run: npm i --global pnpm && pnpm install
       - name: Run build
         run: pnpm build
     
