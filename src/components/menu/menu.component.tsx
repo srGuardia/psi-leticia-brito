@@ -1,34 +1,57 @@
+import { useEffect, useState } from 'react';
 import logo from '@/assets/images/logo.png';
 import { MenuMock } from '@/mock';
-import { useEffect, useState } from 'react';
+import { Icon } from '../icon';
 
 export function Menu() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
     const sections = document.querySelectorAll('section[data-section-theme]');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const newTheme = entry.target.getAttribute('data-section-theme') as
-              | 'light'
-              | 'dark';
-            setTheme(newTheme);
+
+    const getRootMargin = () => {
+      const isMobile = window.innerWidth < 768;
+      // Desktop: menu is at top. Detection strip at 20%-30% from top.
+      // Mobile: menu is at bottom (dock). Detection strip at bottom 20% (80%-100%).
+      return isMobile ? '-80% 0px 0px 0px' : '-20% 0px -70% 0px';
+    };
+
+    let observer: IntersectionObserver;
+
+    const initObserver = () => {
+      if (observer) observer.disconnect();
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              const newTheme = entry.target.getAttribute(
+                'data-section-theme',
+              ) as 'light' | 'dark';
+              setTheme(newTheme);
+            }
           }
-        }
-      },
-      {
-        rootMargin: '-20% 0px -70% 0px',
-        threshold: 0,
-      },
-    );
+        },
+        {
+          rootMargin: getRootMargin(),
+          threshold: 0,
+        },
+      );
 
-    for (const section of sections) {
-      observer.observe(section);
-    }
+      for (const section of sections) {
+        observer.observe(section);
+      }
+    };
 
-    return () => observer.disconnect();
+    initObserver();
+
+    // Re-initialize observer on resize to update rootMargin properly
+    window.addEventListener('resize', initObserver);
+
+    return () => {
+      if (observer) observer.disconnect();
+      window.removeEventListener('resize', initObserver);
+    };
   }, []);
 
   return (
@@ -49,7 +72,8 @@ export function Menu() {
             data-theme={theme}
           >
             <a href={item.href} className="font-medium">
-              {item.label}
+              <span className="hidden md:block">{item.label}</span>
+              <Icon name={item.icon} className="size-5 stroke-1.5 md:hidden" />
             </a>
             <hr className="h-0.5 w-0 border-none bg-amber-600 transition-all duration-500 group-hover:w-full" />
           </li>
