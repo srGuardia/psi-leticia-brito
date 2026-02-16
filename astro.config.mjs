@@ -10,10 +10,8 @@ export default defineConfig({
     enabled: false,
     placement: 'bottom-left',
   },
-
   vite: {
     plugins: [tailwindcss()],
   },
-
   integrations: [react()],
 });

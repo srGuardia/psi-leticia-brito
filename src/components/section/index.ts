@@ -1,0 +1,4 @@
+export * from './section.component';
+export * from './section-about.component';
+export * from './section-contact.component';
+export * from './section-info.component';

@@ -1,5 +1,6 @@
 import avatar from '@/assets/images/avatar.jpg';
-import { Highlighter, TypingAnimation } from './ui';
+import { Highlighter } from '../ui/highlighter';
+import { TypingAnimation } from '../ui/typing-animation';
 
 export function Hero() {
   return (
@@ -34,7 +35,7 @@ export function Hero() {
               </Highlighter>
             </p>
 
-            <p className="mt-4 h-14 font-normal text-md text-white">
+            <p className="mt-4 h-14 text-center font-normal text-md text-white md:max-w-2xl md:text-left">
               <TypingAnimation typeSpeed={40} className="leading-4">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Molestias voluptas consectetur quae assumenda quod nemo, nostrum

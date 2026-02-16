@@ -11,7 +11,7 @@ export function SectionContent({
   return (
     <section
       className={twMerge(
-        'min-h-100 w-full overflow-hidden px-8 py-10 text-white',
+        'relative min-h-100 w-full overflow-hidden px-8 py-10',
         className,
       )}
       {...props}

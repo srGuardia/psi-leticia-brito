@@ -1,10 +1,11 @@
 ---
-import { ScrollProgress } from '@/components';
-import { Menu } from '@/components/menu.component';
+import { Menu, ScrollProgress } from '@/components';
+import '@fontsource/raleway';
+import '@fontsource/roboto';
+
 import '@/styles/global.css';
 ---
 
-<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -15,8 +16,8 @@ import '@/styles/global.css';
 		<title>Astro Basics</title>
 	</head>
 	<body>
-	<Menu />
+		<Menu client:visible />
 		<slot />
-		<ScrollProgress client:only="react"/>
+		<ScrollProgress client:only="react" />
 	</body>
 </html>

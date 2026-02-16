@@ -30,10 +30,11 @@ body {
   @apply bg-zinc-900;
 }
 
-@theme inline {
-  --color-glassmorphism: border border-gray-100 bg-gray-0 bg-opacity-0
-    bg-clip-padding backdrop-blur-lg backdrop-filter;
+@theme {
+  --font-sans: var(--font-roboto);
+}
 
+@theme inline {
   --radius-sm: calc(var(--radius) - 4px);
 
   --radius-md: calc(var(--radius) - 2px);
@@ -205,6 +206,9 @@ body {
 }
 
 :root {
+  --font-roboto: "Roboto", sans-serif;
+  --font-raleway: "Raleway", sans-serif;
+
   --radius: 0.625rem;
 
   --background: oklch(1 0 0);
@@ -278,6 +282,10 @@ body {
   --color-4: oklch(80.2% 0.134 225);
 
   --color-5: oklch(90.7% 0.231 133);
+
+  --card-color-1: #c2d5df;
+  --card-color-2: #ebe6e4;
+  --card-color-3: #8d0d0d;
 }
 
 .dark {
@@ -352,6 +360,10 @@ body {
   --color-4: oklch(80.2% 0.134 225);
 
   --color-5: oklch(90.7% 0.231 133);
+
+  --card-color-1: #c2d5df;
+  --card-color-2: #ebe6e4;
+  --card-color-3: #8d0d0d;
 }
 
 @layer base {

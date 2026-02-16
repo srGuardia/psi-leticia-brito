@@ -1,17 +1,10 @@
 ---
-
-import { Hero, SectionContent } from '@/components';
-import Layout from '../layouts/Layout.astro';
+import { Hero, SectionAbout, SectionInfo } from '@/components';
+import Layout from '@/layouts/Layout.astro';
 ---
 
 <Layout>
   <Hero client:visible />
-
-  <SectionContent className="mt-10">
-    <h3 class="text-center text-3xl font-light mx-auto">Como a terapia pode transformar seu dia a dia</h3>
-    <hr class="w-40 border-2 rounded-md mx-auto border-amber-600 my-6">
-    <p class="text-center max-w-3xl mx-auto">
-     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo error rem a! Quibusdam illum eos porro expedita officia quas sunt harum. Iste assumenda enim maxime velit adipisci excepturi, blanditiis debitis.
-    </p>
-  </SectionContent>
+  <SectionInfo client:visible />
+  <SectionAbout client:visible />
 </Layout>
