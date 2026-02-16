@@ -1,0 +1,12 @@
+services:
+  psi-leticia-brito:
+    container_name: psi-leticia-brito
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4321:4321"
+      - "443:4321"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
