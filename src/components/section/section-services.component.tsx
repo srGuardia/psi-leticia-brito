@@ -1,0 +1,66 @@
+import { SectionContent } from './section.component';
+
+const services = [
+  {
+    icon: '🧠',
+    title: 'Terapia Individual',
+    description: 'Acompanhamento personalizado para suas necessidades.',
+  },
+  {
+    icon: '💼',
+    title: 'Orientação profissional',
+    description: 'Escolhas claras e direcionadas, para o seu sucesso.',
+  },
+  {
+    icon: '🌿',
+    title: 'Apoio à Ansiedade',
+    description: 'Estratégias para manejo da ansiedade e do estresse.',
+  },
+  {
+    icon: '✨',
+    title: 'Autoconhecimento',
+    description: 'Exploração de padrões e construção de novos caminhos.',
+  },
+  {
+    icon: '🔎',
+    title: 'Recrutamento e seleção de pessoas',
+    description: 'Avaliação psicológica para seleção de candidatos.',
+  },
+  {
+    icon: '📝',
+    title: 'Implementação da RN-1',
+    description:
+      'Gestão de riscos psicossociais e estratégias para fortalecer a saúde mental no ambiente corporativo.',
+  },
+];
+
+export function SectionServices() {
+  return (
+    <SectionContent theme="light" className="bg-[#FAF7FB]" id="services">
+      <div className="container mx-auto max-w-7xl px-4">
+        <h2 className="mb-20 text-center font-serif text-4xl text-[#2e2143] italic md:text-5xl lg:text-6xl">
+          Como posso ajudar
+        </h2>
+
+        <div className="flex flex-wrap justify-center gap-6 overflow-hidden lg:gap-8">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="group flex w-full flex-col items-start rounded-[2.5rem] border border-white/60 bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)] sm:w-[calc(50%-12px)] md:p-10 lg:w-[calc(33.33%-22px)] xl:w-[calc(25%-24px)]"
+            >
+              <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#FAF7FB] text-4xl transition-transform duration-500 group-hover:rotate-3 group-hover:scale-110">
+                {service.icon}
+              </div>
+              <h3 className="mb-4 font-bold text-[#2e2143] text-xl tracking-tight">
+                {service.title}
+              </h3>
+              <p className="font-light text-[0.95rem] text-slate-500 leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </SectionContent>
+  );
+}

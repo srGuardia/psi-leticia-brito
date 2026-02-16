@@ -35,6 +35,7 @@ body {
 }
 
 @theme inline {
+  --color-brand: var(--brand);
   --radius-sm: calc(var(--radius) - 4px);
 
   --radius-md: calc(var(--radius) - 2px);
@@ -285,7 +286,7 @@ body {
 
   --card-color-1: #c2d5df;
   --card-color-2: #ebe6e4;
-  --card-color-3: #8d0d0d;
+  --brand: #8d0d0d;
 }
 
 .dark {
@@ -363,7 +364,7 @@ body {
 
   --card-color-1: #c2d5df;
   --card-color-2: #ebe6e4;
-  --card-color-3: #8d0d0d;
+  --brand: #8d0d0d;
 }
 
 @layer base {

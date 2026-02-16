@@ -13,6 +13,10 @@ export const MenuMock: MenuMockType[] = [
     label: 'Informações',
   },
   {
+    href: '#services',
+    label: 'Serviços',
+  },
+  {
     href: '#about',
     label: 'Sobre mim',
   },

@@ -5,16 +5,16 @@ import { SectionContent } from './section.component';
 
 export function SectionInfo() {
   return (
-    <SectionContent className="mt-16 bg-[#FAF7FB] pb-30" id="info">
+    <SectionContent theme="light" className="bg-[#FAF7FB]" id="info">
       <h3 className="text-center font-light text-3xl">
         Como a terapia&nbsp;
-        <Highlighter action="underline" isView>
+        <Highlighter action="underline" color="#FF9800" isView multiline>
           pode transformar
         </Highlighter>
         &nbsp;seu dia a dia
       </h3>
 
-      <hr className="mx-auto my-6 w-40 rounded-md border-2 border-amber-600" />
+      <hr className="mx-auto my-6 w-40 rounded-md border-2 border-brand" />
       <p className="mx-auto max-w-2xl text-center">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo
         error rem a! Quibusdam illum eos porro expedita officia quas sunt harum.

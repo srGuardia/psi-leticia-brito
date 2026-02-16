@@ -4,6 +4,8 @@ export * from './border-beam';
 export * from './highlighter';
 export * from './magic-card';
 export * from './marquee';
+export * from './pixel-image';
 export * from './rainbow-button';
 export * from './scroll-progress';
+export * from './text-reveal';
 export * from './typing-animation';

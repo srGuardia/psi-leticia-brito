@@ -5,6 +5,7 @@ import { TypingAnimation } from '../ui/typing-animation';
 export function Hero() {
   return (
     <section
+      data-section-theme="dark"
       className="h-full w-full overflow-hidden bg-[url(../assets/background.svg)] bg-cover bg-top bg-no-repeat pt-10 md:h-150 md:bg-center md:pt-40"
       id="hero"
     >

@@ -1,46 +1,66 @@
-import { InfoMock } from '@/mock';
-import { Icon } from '../icon';
+import avatar from '@/assets/images/avatar_2.jpg';
 import { Highlighter } from '../ui';
 import { SectionContent } from './section.component';
 
 export function SectionAbout() {
   return (
-    <SectionContent className="mt-16 pb-30 text-white" id="about">
+    <SectionContent theme="dark" className="text-white" id="about">
       <h3 className="text-center font-light text-3xl">
-        Me
-        <Highlighter action="underline" isView>
+        Me&nbsp;
+        <Highlighter action="box" multiline color="var(--brand)" isView>
           conheça
         </Highlighter>
       </h3>
 
-      <hr className="mx-auto my-6 w-40 rounded-md border-2 border-amber-600" />
-      <p className="mx-auto max-w-2xl text-center">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo
-        error rem a! Quibusdam illum eos porro expedita officia quas sunt harum.
-        Iste assumenda enim maxime velit adipisci excepturi, blanditiis debitis.
-      </p>
+      <div className="container mx-auto mt-16 grid gap-2 md:grid-cols-2">
+        <div className="h-full max-h-lg w-full max-w-lg justify-self-center overflow-hidden rounded-lg shadow-card shadow-lg transition-transform duration-200 hover:-translate-y-5">
+          <img
+            src={avatar.src}
+            alt="imagens sobre mim"
+            loading="lazy"
+            className="h-full w-full object-contain md:object-cover"
+          />
+        </div>
 
-      <div className="container mx-auto mt-16 grid gap-4 md:grid-cols-2">
-        {InfoMock.map((_item, _index) => (
-          <div
-            key={_index}
-            className="relative flex flex-col items-center gap-10 overflow-hidden rounded-lg px-4 py-8 transition-all duration-300 hover:scale-103"
-            style={{
-              backgroundColor: `var(${_item.color}`,
-            }}
-          >
-            <Icon name={_item.icon} />
-            <h4 className="text-center font-medium text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </h4>
+        <div className="ml-4 flex h-full w-full flex-col justify-between">
+          <div className="mt-10 block space-y-2 md:m-0 md:flex md:flex-col">
+            <h3 className="font-medium text-2xl">
+              Olá! Meu nome é&nbsp;
+              <Highlighter color="#C2D5DF" isView multiline>
+                Leticia de Brito Martins
+              </Highlighter>
+            </h3>
+            <span className="max-w-fit rounded-full bg-brand p-2 text-xs">
+              CRP 12/30305
+            </span>
 
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-              quod, quibusdam, quae, quia quos quidem quia quia quia quia quia
-              quia quia quia quia quia.
-            </p>
+            <div className="mt-20 space-y-3">
+              <h4 className="font-light text-xl">📖&nbsp;Minha Abordagem</h4>
+
+              <p className="font-extralight text-sm">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Laboriosam, quibusdam, possimus incidunt provident hic
+                cupiditate architecto dolor voluptatibus assumenda minima
+                dolorum nemo, laudantium inventore illum distinctio soluta
+                tempore quaerat blanditiis.
+              </p>
+            </div>
           </div>
-        ))}
+
+          <div className="flex flex-col gap-6 rounded-lg bg-[#FAF7FB]/60 p-8 text-black">
+            <span>
+              🩷&nbsp;Vamos juntos explorar os caminhos que levarão ao seu
+              bem-estar emocional e mental.
+            </span>
+
+            <a
+              href="tel:+5518997828340"
+              className="w-full max-w-80 rounded-md border px-6 py-4 text-center font-light text-white transition-colors duration-400 hover:bg-gray-300 hover:text-black"
+            >
+              Agende sua consulta
+            </a>
+          </div>
+        </div>
       </div>
     </SectionContent>
   );
