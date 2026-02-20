@@ -1,6 +1,7 @@
 services:
   psi-leticia-brito:
     container_name: psi-leticia-brito
+    restart: unless-stopped
     build:
       context: .
       dockerfile: Dockerfile
@@ -8,4 +9,3 @@ services:
       - "4321:4321"
     environment:
       - NODE_ENV=production
-    restart: unless-stopped
