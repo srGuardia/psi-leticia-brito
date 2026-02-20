@@ -5,36 +5,35 @@ type InfoMockType = {
   title: string;
   description: string;
   color: string;
-  group: string;
 };
 
 export const InfoMock: InfoMockType[] = [
   {
     icon: 'lightbulb',
-    title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    title: 'Clareza sobre si mesma',
+    description:
+      'A terapia amplia sua consciência emocional, ajuda a identificar padrões repetitivos e permite enxergar escolhas com mais lucidez. Você deixa de reagir no automático e começa a agir com intenção.',
     color: '--card-color-2',
-    group: 'red',
   },
   {
     icon: 'earth',
-    title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    title: 'Relações mais saudáveis',
+    description:
+      'O autoconhecimento fortalece sua autonomia e transforma a maneira como você se posiciona nos vínculos, no trabalho e nas decisões da sua vida.',
     color: '--card-color-1',
-    group: 'red',
   },
   {
     icon: 'brain',
-    title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    title: 'Ressignificação de padrões',
+    description:
+      'Muitas dores atuais têm raízes antigas, na terapia você compreende sua história, integra suas experiências e constrói novas formas de se relacionar consigo e com o mundo. Não é apagar o passado, é dar novo sentido a ele.',
     color: '--card-color-1',
-    group: 'red',
   },
   {
     icon: 'shell',
-    title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    title: 'Regulação emocional',
+    description:
+      'Você aprende a lidar melhor com ansiedade, inseguranças e sobrecarga emocional. Desenvolve recursos internos para sustentar decisões, enfrentar desafios e viver com mais equilíbrio.',
     color: '--card-color-2',
-    group: 'default',
   },
 ];
