@@ -12,9 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - name: Deploy to Hostinger
-        uses: hostinger/deploy-on-vps@v2
+        uses: hostinger/deploy-on-vps@v1
         with:
           project-name: psi-leticia-brito
+          personal-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           api-key: ${{ secrets.HOSTINGER_API_KEY }}
           virtual-machine: ${{ secrets.HOSTINGER_VM_ID }}
           docker-compose-path: docker-compose.yml
