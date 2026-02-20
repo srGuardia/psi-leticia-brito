@@ -1,6 +1,7 @@
 ---
-import { Hero, SectionAbout, SectionInfo, SectionServices } from '@/components';
-import Layout from '@/layouts/Layout.astro';
+import { Hero, SectionAbout, SectionInfo, SectionServices } from "@/components";
+import Footer from "@/components/footer/footer.component.astro";
+import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout>
@@ -8,4 +9,5 @@ import Layout from '@/layouts/Layout.astro';
   <SectionInfo client:visible />
   <SectionServices />
   <SectionAbout client:visible />
+  <Footer />
 </Layout>
