@@ -8,9 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - uses: actions/checkout@v5
-
       - name: Deploy to Hostinger
         uses: hostinger/deploy-on-vps@v1
         with:
