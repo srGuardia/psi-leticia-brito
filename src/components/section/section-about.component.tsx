@@ -77,7 +77,7 @@ export function SectionAbout() {
             <div className="flex flex-col gap-2 md:flex-row">
               <a
                 href={`https://wa.me/${import.meta.env.PUBLIC_WHATSAPP_NUMBER}?text=Olá%2C%20eu%20gostaria%20de%20marcar%20uma%20sessão%20de%20psicoterapia%20individual.`}
-                className="w-full max-w-80 rounded-md border px-6 py-4 text-center font-light text-white transition-colors duration-400 hover:border-emerald-300 hover:bg-emerald-400"
+                className="w-full max-w-80 rounded-md border px-6 py-4 text-center font-light text-white transition-colors duration-400 hover:bg-gray-300 hover:text-black"
               >
                 Agende sua consulta
               </a>
