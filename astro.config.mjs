@@ -7,7 +7,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'icow44kcc0oc4ccockc4kw40.72.60.139.146.sslip.io',
+  site: 'https://leticiabrito.com.br',
   devToolbar: {
     enabled: false,
     placement: 'bottom-left',
@@ -15,7 +15,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     preview: {
-      allowedHosts: ['icow44kcc0oc4ccockc4kw40.72.60.139.146.sslip.io'],
+      allowedHosts: ['http://icow44kcc0oc4ccockc4kw40.72.60.139.146.sslip.io/'],
     },
   },
   integrations: [react(), sitemap()],
