@@ -14,6 +14,9 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    preview: {
+      allowedHosts: ['icow44kcc0oc4ccockc4kw40.72.60.139.146.sslip.io'],
+    },
   },
   integrations: [react(), sitemap()],
 });
