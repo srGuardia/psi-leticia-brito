@@ -1,25 +1,20 @@
-FROM node:24-alpine as base
-RUN npm install --global pnpm
+# ---------- Build stage ----------
+FROM node:24-alpine AS builder
+
+RUN npm install -g pnpm
 WORKDIR /app
 
-# Install dependencies
-FROM base as deps
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
-# Build the project
-FROM base as builder
 COPY . .
-COPY --from=deps /app/node_modules ./node_modules
-RUN pnpm run build
+RUN pnpm build
 
-# Production runner
-FROM base as runner
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package.json /app/pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile --prod
+# ---------- Production stage ----------
+FROM nginx:alpine
 
-EXPOSE 4321
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Important: --host 0.0.0.0 is required for Docker accessibility
-CMD ["pnpm", "preview", "--host", "0.0.0.0"]
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
