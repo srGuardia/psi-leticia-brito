@@ -7,7 +7,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://leticiabrito.com.br',
+  site: 'icow44kcc0oc4ccockc4kw40.72.60.139.146.sslip.io',
   devToolbar: {
     enabled: false,
     placement: 'bottom-left',
