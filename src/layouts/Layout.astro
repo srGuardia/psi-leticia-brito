@@ -1,30 +1,81 @@
 ---
-import { Menu, ScrollProgress } from '@/components';
-import '@fontsource/raleway';
-import '@fontsource/roboto';
+import { Menu, ScrollProgress } from "@/components";
+import "@fontsource/raleway";
+import "@fontsource/roboto";
 
-import '@/styles/global.css';
+import "@/styles/global.css";
+
+const title = "Psicóloga Letícia Brito | Palhoça - Pedra Branca | CRP 12/30305";
+const description =
+	"Psicoterapia Psicanalítica em Palhoça (Pedra Branca) e Online. Atendimento para adolescentes e adultos, focado em autoconhecimento e saúde mental. CRP 12/30305.";
+const canonicalURL = new URL(Astro.url.pathname, "https://leticiabrito.com.br");
 ---
 
-<html lang="en">
+<html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/ico" href="/logo.ico" />
 		<link rel="icon" href="/logo.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<meta
-			name="description"
-			content="Atuo com a Psicoterapia Psicanalítica, fundamentada na escuta ética e na compreensão dos processos inconscientes que atravessam emoções, escolhas e padrões de repetição. Acredito que cada indivíduo é único e merece ser compreendido em sua singularidade e profundidade. A psicoterapia é um espaço de escuta que amplia a consciência, possibilita a ressignificação de padrões e fortalece a autonomia para viver de forma mais coerente com quem se é."
-		/>
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
 		<meta
 			name="keywords"
-			content="Psicóloga, Letícia Brito, CRP 12/30305, Psicóloga Clínica e Organizacional, Psicanálise, Autoconhecimento, Saúde Mental, Atendimento a adolescentes e adultos, Presencial e online, Saúde mental para empresas conscientes."
+			content="Psicóloga Palhoça, Psicóloga Pedra Branca, Letícia Brito, CRP 12/30305, Psicoterapia Palhoça, Psicanálise Palhoça, Saúde Mental Palhoça, Psicóloga Online"
 		/>
 		<meta name="author" content="Leticia Brito" />
 		<meta name="robots" content="index, follow" />
 		<meta name="theme-color" content="#8d0d0d" />
-		<title>Psicóloga Letícia Brito | CRP 12/30305</title>
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/og-image.jpg" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content="/og-image.jpg" />
+
+		<!-- Local Business Schema -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "LocalBusiness",
+				"name": "Psicóloga Letícia Brito",
+				"image": "https://leticiabrito.com.br/logo.svg",
+				"@id": "https://leticiabrito.com.br",
+				"url": "https://leticiabrito.com.br",
+				"telephone": "+5518996522547",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Pedra Branca, Cidade Universitária",
+					"addressLocality": "Palhoça",
+					"addressRegion": "SC",
+					"postalCode": "88132-599",
+					"addressCountry": "BR"
+				},
+				"geo": {
+					"@type": "GeoCoordinates",
+					"latitude": -27.621,
+					"longitude": -48.675
+				},
+				"openingHoursSpecification": {
+					"@type": "OpeningHoursSpecification",
+					"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+					"opens": "07:00",
+					"closes": "21:00"
+				},
+				"sameAs": ["https://www.instagram.com/psi.leticiabrito/"]
+			}
+		</script>
 	</head>
 	<body>
 		<Menu client:visible />
