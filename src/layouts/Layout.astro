@@ -1,14 +1,17 @@
 ---
 import { Menu, ScrollProgress } from "@/components";
-import "@fontsource/raleway";
-import "@fontsource/roboto";
+import { env } from "@/types/env";
 
 import "@/styles/global.css";
+import "@fontsource/raleway";
+import "@fontsource/roboto";
 
 const title = "Psicóloga Letícia Brito | Palhoça - Pedra Branca | CRP 12/30305";
 const description =
 	"Psicoterapia Psicanalítica em Palhoça (Pedra Branca) e Online. Atendimento para adolescentes e adultos, focado em autoconhecimento e saúde mental. CRP 12/30305.";
-const canonicalURL = new URL(Astro.url.pathname, "https://leticiabrito.com.br");
+const canonicalURL = new URL(Astro.url.pathname, env.PUBLIC_SITE_URL);
+const instagramURL = env.PUBLIC_INSTAGRAM_URL;
+const facebookURL = env.PUBLIC_FACEBOOK_URL;
 ---
 
 <html lang="pt-BR">
@@ -45,37 +48,39 @@ const canonicalURL = new URL(Astro.url.pathname, "https://leticiabrito.com.br");
 		<meta property="twitter:image" content="/og-image.jpg" />
 
 		<!-- Local Business Schema -->
-		<script type="application/ld+json">
-			{
+		<script
+			type="application/ld+json"
+			is:inline
+			set:html={JSON.stringify({
 				"@context": "https://schema.org",
 				"@type": "LocalBusiness",
-				"name": "Psicóloga Letícia Brito",
-				"image": "https://leticiabrito.com.br/logo.svg",
+				name: "Psicóloga Letícia Brito",
+				image: "https://leticiabrito.com.br/logo.svg",
 				"@id": "https://leticiabrito.com.br",
-				"url": "https://leticiabrito.com.br",
-				"telephone": "+5518996522547",
-				"address": {
+				url: "https://leticiabrito.com.br",
+				telephone: "+5518996522547",
+				address: {
 					"@type": "PostalAddress",
-					"streetAddress": "Pedra Branca, Cidade Universitária",
-					"addressLocality": "Palhoça",
-					"addressRegion": "SC",
-					"postalCode": "88132-599",
-					"addressCountry": "BR"
+					streetAddress: "Pedra Branca, Cidade Universitária",
+					addressLocality: "Palhoça",
+					addressRegion: "SC",
+					postalCode: "88132-599",
+					addressCountry: "BR",
 				},
-				"geo": {
+				geo: {
 					"@type": "GeoCoordinates",
-					"latitude": -27.621,
-					"longitude": -48.675
+					latitude: -27.621,
+					longitude: -48.675,
 				},
-				"openingHoursSpecification": {
+				openingHoursSpecification: {
 					"@type": "OpeningHoursSpecification",
-					"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-					"opens": "07:00",
-					"closes": "21:00"
+					dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+					opens: "07:00",
+					closes: "21:00",
 				},
-				"sameAs": ["https://www.instagram.com/psi.leticiabrito/"]
-			}
-		</script>
+				sameAs: [instagramURL, facebookURL],
+			})}
+		/>
 	</head>
 	<body>
 		<Menu client:visible />
