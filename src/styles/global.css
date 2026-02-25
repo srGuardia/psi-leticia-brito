@@ -16,7 +16,7 @@ html {
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #2e2143;
+    background: var(--brand);
     border-radius: 1rem;
   }
 }
@@ -32,6 +32,7 @@ body {
 
 @theme {
   --font-sans: var(--font-roboto);
+  --font-raleway: var(--font-raleway);
 }
 
 @theme inline {

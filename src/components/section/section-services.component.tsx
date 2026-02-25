@@ -22,6 +22,18 @@ const services = [
     description: 'Exploração de padrões e construção de novos caminhos.',
   },
   {
+    icon: '🌈',
+    title: 'Psicoterapia Infantil',
+    description:
+      'Espaço seguro para a criança expressar emoções, desenvolver autonomia e fortalecer vínculos.',
+  },
+  {
+    icon: '🌍',
+    title: 'Brasileiros no exterior',
+    description:
+      'Acolhimento psicológico para quem vive fora do país e enfrenta desafios de adaptação, identidade e pertencimento.',
+  },
+  {
     icon: '🔎',
     title: 'Recrutamento e seleção de pessoas',
     description: 'Avaliação psicológica para seleção de candidatos.',
@@ -36,10 +48,10 @@ const services = [
 
 export function SectionServices() {
   return (
-    <SectionContent theme="light" className="bg-[#FAF7FB]" id="services">
+    <SectionContent theme="light" className="bg-[#FAF7FB] pt-5" id="services">
       <div className="container mx-auto max-w-7xl px-4">
         <h2 className="mb-20 text-center font-serif text-4xl text-[#2e2143] italic md:text-5xl lg:text-6xl">
-          Como posso ajudar
+          Como posso te ajudar
         </h2>
 
         <div className="flex flex-wrap justify-center gap-6 overflow-hidden lg:gap-8">

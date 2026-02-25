@@ -1,13 +1,10 @@
-// @ts-check
-
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 
-// https://astro.build/config
 export default defineConfig({
-  site: process.env.PUBLIC_SITE_URL || 'https://leticiabrito.com.br',
+  site: process.env.PUBLIC_SITE_URL || 'https://leticiabritto.com',
   devToolbar: {
     enabled: false,
     placement: 'bottom-left',

@@ -1,4 +1,5 @@
 import avatar from '@/assets/images/avatar.jpg';
+import { env } from '@/types/env';
 import { Highlighter } from '../ui/highlighter';
 import { TypingAnimation } from '../ui/typing-animation';
 
@@ -23,7 +24,7 @@ export function Hero() {
           <div className="w-full">
             <h2 className="font-bold text-4xl text-white">
               <TypingAnimation
-                words={['Leticia Brito', 'Psicóloga Clínica e Organizacional']}
+                words={['Leticia Brito', 'Psicóloga']}
                 blinkCursor
                 deleteSpeed={50}
                 typeSpeed={90}
@@ -36,14 +37,18 @@ export function Hero() {
               </Highlighter>
             </p>
 
-            <p className="mt-4 h-14 text-center font-normal text-md text-white md:max-w-2xl md:text-left">
-              <Highlighter action="highlight" color="#FF9800" multiline>
-                Psicanálise | Autoconhecimento | Saúde Mental
+            <p className="my-6 text-center font-normal text-md text-white text-xl md:max-w-2xl md:text-left">
+              <Highlighter action="highlight" color="var(--brand)" multiline>
+                "O autoconhecimento é a bússola para o desenvolvimento pessoal"
               </Highlighter>
-              <br />
-              Atendimento para adolescentes e adultos de forma presencial e
-              online
-              <br />E consultoria para&nbsp;
+            </p>
+
+            <p className="text-center font-normal text-md text-white md:max-w-2xl md:text-left">
+              Psicóloga Clínica e Organizacional
+            </p>
+
+            <p className="text-center font-normal text-md text-white md:max-w-2xl md:text-left">
+              Atendimento clínico e consultoria para&nbsp;
               <Highlighter action="underline" color="var(--brand)">
                 empresas conscientes.
               </Highlighter>
@@ -51,7 +56,9 @@ export function Hero() {
           </div>
 
           <a
-            href={`https://wa.me/${import.meta.env.PUBLIC_WHATSAPP_NUMBER}?text=Olá%2C%20eu%20gostaria%20de%20marcar%20uma%20sessão%20de%20psicoterapia%20individual.`}
+            href={`https://wa.me/${env.PUBLIC_WHATSAPP_NUMBER}?text=Olá%2C%20eu%20gostaria%20de%20marcar%20uma%20sessão%20de%20psicoterapia%20individual.`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-22 w-full max-w-80 rounded-md border px-6 py-4 text-center font-light text-white transition-colors duration-400 hover:bg-gray-300 hover:text-black md:mt-16"
           >
             Agende sua consulta

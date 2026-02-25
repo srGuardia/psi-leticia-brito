@@ -6,12 +6,16 @@ import "@/styles/global.css";
 import "@fontsource/raleway";
 import "@fontsource/roboto";
 
-const title = "Psicóloga Letícia Brito | Palhoça - Pedra Branca | CRP 12/30305";
-const description =
-	"Psicoterapia Psicanalítica em Palhoça (Pedra Branca) e Online. Atendimento para adolescentes e adultos, focado em autoconhecimento e saúde mental. CRP 12/30305.";
-const canonicalURL = new URL(Astro.url.pathname, env.PUBLIC_SITE_URL);
+const siteURL = env.PUBLIC_SITE_URL || "https://leticiabritto.com";
+const canonicalURL = new URL(Astro.url.pathname, siteURL);
 const instagramURL = env.PUBLIC_INSTAGRAM_URL;
 const facebookURL = env.PUBLIC_FACEBOOK_URL;
+const phoneNumber = env.PUBLIC_WHATSAPP_NUMBER;
+const address = env.PUBLIC_ADDRESS;
+
+const title = `Psicóloga Letícia Brito | ${address} | CRP 12/30305`;
+const description =
+	"Psicoterapia Psicanalítica em Palhoça (Pedra Branca) e Online. Atendimento para adolescentes e adultos, focado em autoconhecimento e saúde mental. CRP 12/30305.";
 ---
 
 <html lang="pt-BR">
@@ -55,26 +59,32 @@ const facebookURL = env.PUBLIC_FACEBOOK_URL;
 				"@context": "https://schema.org",
 				"@type": "LocalBusiness",
 				name: "Psicóloga Letícia Brito",
-				image: "https://leticiabrito.com.br/logo.svg",
-				"@id": "https://leticiabrito.com.br",
-				url: "https://leticiabrito.com.br",
-				telephone: "+5518996522547",
+				image: `${siteURL}/logo.svg`,
+				"@id": `${siteURL}`,
+				url: `${siteURL}`,
+				telephone: `${phoneNumber}`,
 				address: {
 					"@type": "PostalAddress",
-					streetAddress: "Pedra Branca, Cidade Universitária",
+					streetAddress: "R. da Praça, 241 - Cidade Universitária Pedra Branca",
 					addressLocality: "Palhoça",
 					addressRegion: "SC",
-					postalCode: "88132-599",
+					postalCode: "88137-086",
 					addressCountry: "BR",
 				},
 				geo: {
 					"@type": "GeoCoordinates",
-					latitude: -27.621,
-					longitude: -48.675,
+					latitude: -7.62151414903566,
+					longitude: -48.6775439599411,
 				},
 				openingHoursSpecification: {
 					"@type": "OpeningHoursSpecification",
-					dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+					dayOfWeek: [
+						"Segunda-feira",
+						"Terça-feira",
+						"Quarta-feira",
+						"Quinta-feira",
+						"Sexta-feira",
+					],
 					opens: "07:00",
 					closes: "21:00",
 				},
@@ -85,6 +95,6 @@ const facebookURL = env.PUBLIC_FACEBOOK_URL;
 	<body>
 		<Menu client:visible />
 		<slot />
-		<ScrollProgress client:only="react" />
+		<ScrollProgress client:visible />
 	</body>
 </html>

@@ -4,6 +4,7 @@ import {
   Hero,
   SectionAbout,
   SectionInfo,
+  SectionPhrase,
   SectionServices,
 } from "@/components";
 import Layout from "@/layouts/Layout.astro";
@@ -12,7 +13,8 @@ import Layout from "@/layouts/Layout.astro";
 <Layout>
   <Hero client:visible />
   <SectionInfo client:visible />
-  <SectionServices />
+  <SectionServices client:visible />
   <SectionAbout client:visible />
-  <Footer />
+  <SectionPhrase client:visible />
+  <Footer client:visible />
 </Layout>

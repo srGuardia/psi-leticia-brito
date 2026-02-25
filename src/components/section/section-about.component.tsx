@@ -13,7 +13,7 @@ export function SectionAbout() {
       </h3>
 
       <div className="container mx-auto mt-16 grid gap-2 md:grid-cols-2">
-        <div className="h-full max-h-lg w-full max-w-lg justify-self-center overflow-hidden rounded-lg shadow-card shadow-lg transition-transform duration-200 hover:-translate-y-5">
+        <div className="h-full max-h-lg w-full max-w-lg justify-self-center overflow-hidden rounded-lg shadow-card shadow-lg transition-transform duration-200 hover:-translate-y-5 active:scale-105">
           <img
             src={avatar.src}
             alt="imagens sobre mim"
@@ -60,10 +60,21 @@ export function SectionAbout() {
               </h4>
 
               <p className="font-extralight text-sm md:text-base">
-                Estou disponível para atendimentos online e presenciais, onde
-                aplico abordagens terapêuticas embasadas na psicanálise.
+                Minha prática é orientada pela psicanálise, compreendendo cada
+                sujeito a partir de sua história, seus vínculos e processos
+                inconscientes.
+              </p>
+
+              <p className="font-extralight text-sm md:text-base">
+                O acompanhamento é personalizado, respeitando a singularidade,
+                os vínculos, o tempo e as necessidades de cada pessoa. Não se
+                trata de um modelo pronto; construímos juntos um processo a
+                partir da escuta e do que emerge em cada trajetória.
+              </p>
+
+              <p className="font-extralight text-sm md:text-base">
                 Acredito que cada indivíduo é único e merece ser compreendido em
-                profundidade para que possa viver uma vida mais significativa.
+                profundidade, para viver uma vida mais significativa.
               </p>
             </div>
           </div>
@@ -77,14 +88,18 @@ export function SectionAbout() {
             <div className="flex flex-col gap-2 md:flex-row">
               <a
                 href={`https://wa.me/${import.meta.env.PUBLIC_WHATSAPP_NUMBER}?text=Olá%2C%20eu%20gostaria%20de%20marcar%20uma%20sessão%20de%20psicoterapia%20individual.`}
-                className="w-full max-w-80 rounded-md border px-6 py-4 text-center font-light text-white transition-colors duration-400 hover:bg-gray-300 hover:text-black"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full max-w-80 select-none rounded-md border px-6 py-4 text-center font-light text-white transition-colors duration-400 hover:bg-gray-300 hover:text-black active:bg-gray-300 active:text-black"
               >
                 Agende sua consulta
               </a>
 
               <a
                 href={`https://wa.me/${import.meta.env.PUBLIC_WHATSAPP_NUMBER}?text=Olá%2C%20eu%20gostaria%20de%20marcar%20uma%20sessão%20de%20psicoterapia%20individual.`}
-                className="w-full max-w-80 rounded-md border px-6 py-4 text-center font-light text-white transition-colors duration-400 hover:border-[#FF9800]/60 hover:bg-[#FF9800]"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full max-w-80 select-none rounded-md border px-6 py-4 text-center font-light text-white transition-colors duration-400 hover:border-[#FF9800]/60 hover:bg-[#FF9800] active:border-[#FF9800]/60 active:bg-[#FF9800]"
               >
                 Agende sua consultoria
               </a>
