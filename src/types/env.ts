@@ -5,4 +5,6 @@ export const env = {
   PUBLIC_FACEBOOK_URL: import.meta.env.PUBLIC_FACEBOOK_URL || '',
   PUBLIC_ADDRESS: import.meta.env.PUBLIC_ADDRESS || '',
   PUBLIC_EMAIL: import.meta.env.PUBLIC_EMAIL || '',
+  PUBLIC_ANALYTICS_ID: import.meta.env.PUBLIC_ANALYTICS_ID || '',
+  PUBLIC_ANALYTICS_URL: import.meta.env.PUBLIC_ANALYTICS_URL || '',
 };

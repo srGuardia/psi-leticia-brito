@@ -12,6 +12,8 @@ const instagramURL = env.PUBLIC_INSTAGRAM_URL;
 const facebookURL = env.PUBLIC_FACEBOOK_URL;
 const phoneNumber = env.PUBLIC_WHATSAPP_NUMBER;
 const address = env.PUBLIC_ADDRESS;
+const analyticsWebSiteId = env.PUBLIC_ANALYTICS_ID;
+const analyticsURL = env.PUBLIC_ANALYTICS_URL;
 
 const title = `Psicóloga Letícia Brito | ${address} | CRP 12/30305`;
 const description =
@@ -91,6 +93,10 @@ const description =
 				sameAs: [instagramURL, facebookURL],
 			})}
 		/>
+
+		<!-- ANALYTICS -->
+		<script defer src={analyticsURL} data-website-id={analyticsWebSiteId}
+		></script>
 	</head>
 	<body>
 		<Menu client:visible />
