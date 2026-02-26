@@ -84,11 +84,11 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="container mx-auto mt-16 flex flex-col items-center justify-between gap-4 border-white/10 border-t pt-8 font-light text-gray-500 text-sm md:flex-row">
+      <div className="container mx-auto mt-16 flex flex-col items-center justify-between gap-4 border-white/10 border-t pt-8 font-light text-gray-500 text-sm text-white md:flex-row">
         <p>
           © {currentYear} Psicóloga Leticia Brito. Todos os direitos reservados.
         </p>
-        <p>CRP 12/30305</p>
+        <p className="font-extrabold">CRP 12/30305</p>
       </div>
     </footer>
   );
