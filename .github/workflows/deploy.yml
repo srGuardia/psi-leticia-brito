@@ -82,16 +82,31 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Update package.json version without creating a git tag (we do it manually next)
-          npm version ${{ steps.create_tag.outputs.new_tag }} --no-git-tag-version
+          # Update package.json version. --allow-same-version prevents error if version is already matching
+          npm version ${{ steps.create_tag.outputs.new_tag }} --no-git-tag-version --allow-same-version
           
-          # Commit the change to package.json
-          git add package.json
-          git commit -m "chore: bump version to ${{ steps.create_tag.outputs.new_tag }} [skip ci]"
-          git push origin main
+          # Commit and push only if package.json was actually changed
+          if ! git diff --quiet package.json; then
+            git add package.json
+            git commit -m "chore: bump version to ${{ steps.create_tag.outputs.new_tag }} [skip ci]"
+            git push origin main
+          else
+            echo "Version in package.json is already ${{ steps.create_tag.outputs.new_tag }}, skipping commit."
+          fi
 
       - name: Create and push tag
         run: |
           git tag ${{ steps.create_tag.outputs.new_tag }}
           git push origin ${{ steps.create_tag.outputs.new_tag }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.create_tag.outputs.new_tag }}
+          name: Release ${{ steps.create_tag.outputs.new_tag }}
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
