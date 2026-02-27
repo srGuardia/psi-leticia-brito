@@ -40,7 +40,7 @@ const services = [
   },
   {
     icon: '📝',
-    title: 'Implementação da RN-1',
+    title: 'Implementação da NR-1',
     description:
       'Gestão de riscos psicossociais e estratégias para fortalecer a saúde mental no ambiente corporativo.',
   },
