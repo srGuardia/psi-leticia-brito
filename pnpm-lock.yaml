@@ -23,6 +23,9 @@ importers:
       '@icons-pack/react-simple-icons':
         specifier: ^13.11.2
         version: 13.11.2(react@19.2.4)
+      '@radix-ui/react-slot':
+        specifier: ^1.2.4
+        version: 1.2.4(@types/react@19.2.14)(react@19.2.4)
       '@tailwindcss/vite':
         specifier: ^4.1.18
         version: 4.2.1(vite@6.4.1(jiti@2.6.1)(lightningcss@1.31.1))
@@ -59,6 +62,9 @@ importers:
       rough-notation:
         specifier: ^0.5.1
         version: 0.5.1
+      shadcn:
+        specifier: ^3.8.4
+        version: 3.8.5(typescript@5.9.3)
       tailwind-merge:
         specifier: ^3.4.1
         version: 3.5.0
@@ -72,12 +78,6 @@ importers:
       '@biomejs/biome':
         specifier: 2.4.0
         version: 2.4.0
-      '@radix-ui/react-slot':
-        specifier: ^1.2.4
-        version: 1.2.4(@types/react@19.2.14)(react@19.2.4)
-      shadcn:
-        specifier: ^3.8.4
-        version: 3.8.5(typescript@5.9.3)
 
 packages:
 
