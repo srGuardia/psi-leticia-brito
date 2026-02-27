@@ -19,7 +19,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
       - name: Run format check
@@ -37,7 +36,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --prod
       - name: Run build
@@ -47,7 +45,9 @@ jobs:
     name: Deploy project
     runs-on: ubuntu-latest
     needs: build
-    environment: staging
+    environment:
+      name: staging
+      url: https://psi-staging.leticiabritto.com
     steps:
       - name: Deploy to Coolify
         run: |

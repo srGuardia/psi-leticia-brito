@@ -8,7 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: Hostinger
+    environment:
+      name: Hostinger
+      url: https://psi.leticiabritto.com
     steps:
       - name: Checkout project
         uses: actions/checkout@v5
