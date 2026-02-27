@@ -2,10 +2,20 @@ name: Deploy
 
 on:
   push:
-    tags:
-      - "*"
+    branches:
+      - main
     
   workflow_dispatch:
+    inputs:
+      version_type:
+        description: 'Escolha o tipo de incremento da versão'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
 
 jobs:
   deploy:
@@ -20,3 +30,68 @@ jobs:
       - name: Deploy to Coolify
         run: |
           curl --request GET '${{secrets.COOLIFY_WEBHOOK}}' --header 'Authorization: Bearer ${{secrets.COOLIFY_TOKEN}}'
+
+  generate_tag:
+    name: Generate tag
+    runs-on: ubuntu-latest
+    needs: deploy
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Generate next version tag
+        id: create_tag
+        run: |
+          # Fetch all tags to get the latest version
+          git fetch --tags --force
+          
+          # Get the latest tag that matches the semantic versioning pattern (X.Y.Z)
+          LATEST_TAG=$(git tag -l | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -n1)
+          
+          # Determine the increment type (default to patch if not from workflow_dispatch)
+          VERSION_TYPE="${{ github.event.inputs.version_type }}"
+          if [ -z "$VERSION_TYPE" ]; then
+            VERSION_TYPE="patch"
+          fi
+          
+          if [ -z "$LATEST_TAG" ]; then
+            NEW_TAG="1.0.0"
+          else
+            # Split the version into components
+            IFS='.' read -r major minor patch <<< "$LATEST_TAG"
+            
+            if [ "$VERSION_TYPE" == "major" ]; then
+              NEW_TAG="$((major + 1)).0.0"
+            elif [ "$VERSION_TYPE" == "minor" ]; then
+              NEW_TAG="$major.$((minor + 1)).0"
+            else
+              NEW_TAG="$major.$minor.$((patch + 1))"
+            fi
+          fi
+          
+          echo "Increment type: $VERSION_TYPE"
+          echo "Next tag: $NEW_TAG"
+          echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
+
+      - name: Update package.json and commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Update package.json version without creating a git tag (we do it manually next)
+          npm version ${{ steps.create_tag.outputs.new_tag }} --no-git-tag-version
+          
+          # Commit the change to package.json
+          git add package.json
+          git commit -m "chore: bump version to ${{ steps.create_tag.outputs.new_tag }} [skip ci]"
+          git push origin main
+
+      - name: Create and push tag
+        run: |
+          git tag ${{ steps.create_tag.outputs.new_tag }}
+          git push origin ${{ steps.create_tag.outputs.new_tag }}
+        
