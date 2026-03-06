@@ -1,18 +1,24 @@
 import { useEffect, useState } from 'react';
+import { twMerge } from 'tailwind-merge';
+
 import logo from '@/assets/images/logo.png';
-import { MenuMock } from '@/mock';
+import { menuMock } from '@/mock';
 import { Icon } from '../icon';
+
+const styles = {
+  mobile: 'bottom-4 z-10 rounded-full w-[80%] p-6 mx-auto inset-x-0',
+  default: 'md:top-0 md:flex md:h-20 md:w-full md:items-center',
+};
 
 export function Menu() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [menuMobile, setMenuMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
-    const sections = document.querySelectorAll('section[data-section-theme]');
+    const sections = document.querySelectorAll('[data-section-theme]');
 
     const getRootMargin = () => {
       const isMobile = window.innerWidth < 768;
-      // Desktop: menu is at top. Detection strip at 20%-30% from top.
-      // Mobile: menu is at bottom (dock). Detection strip at bottom 20% (80%-100%).
       return isMobile ? '-80% 0px 0px 0px' : '-20% 0px -70% 0px';
     };
 
@@ -54,18 +60,45 @@ export function Menu() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setMenuMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    <nav className="fixed right-0 bottom-4 left-0 z-10 mx-auto h-14 w-[80%] content-center overflow-hidden rounded-full border bg-gray-0 bg-opacity-0 bg-clip-padding shadow-md backdrop-blur-lg backdrop-filter md:top-0 md:flex md:h-20 md:w-full md:items-center md:rounded-none md:border-none">
+    <nav
+      className={twMerge(
+        'fixed z-10 bg-opacity-0 bg-clip-padding shadow-md backdrop-blur-lg backdrop-filter',
+        styles.default,
+        menuMobile && styles.mobile,
+      )}
+    >
       <div className="hidden size-20 md:block">
-        <img
-          src={logo.src}
-          alt="Logo"
-          className="h-full w-full object-contain"
-          loading="lazy"
-        />
+        <picture>
+          <source
+            srcSet="/logo.webp"
+            type="image/webp"
+            className="h-full w-full object-contain"
+          />
+
+          <img
+            src={logo.src}
+            alt="Logo"
+            className="h-full w-full object-contain"
+            loading="lazy"
+          />
+        </picture>
       </div>
+
       <ul className="flex w-full flex-2 justify-around p-0 md:px-4 md:py-6">
-        {MenuMock.map((item, index) => (
+        {menuMock.map((item, index) => (
           <li
             className="group transition-colors duration-500 data-[theme=dark]:text-white data-[theme=light]:text-black"
             key={item.href || index}

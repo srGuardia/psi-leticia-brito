@@ -1,4 +1,5 @@
-/** biome-ignore-all lint/style/noNonNullAssertion: <explanation> */
+/** biome-ignore-all lint/style/noNonNullAssertion: false */
+/** biome-ignore-all lint/a11y/noRedundantAlt: false */
 import { useEffect, useMemo, useState } from 'react';
 
 import { cn } from '@/lib/utils';
@@ -106,7 +107,6 @@ export const PixelImage = ({
         >
           <img
             src={src}
-            // biome-ignore lint/a11y/noRedundantAlt: <explanation>
             alt={`Pixel image piece ${index + 1}`}
             className={cn(
               'z-1 rounded-[2.5rem] object-cover',

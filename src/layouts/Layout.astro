@@ -1,12 +1,13 @@
 ---
-import { Menu, ScrollProgress } from "@/components";
-import { env } from "@/types/env";
+import { env } from '@/types/env';
 
-import "@/styles/global.css";
-import "@fontsource/raleway";
-import "@fontsource/roboto";
+import { Menu } from '@/components/menu';
+import { ScrollProgress } from '@/components/ui';
+import '@/styles/global.css';
+import '@fontsource/raleway';
+import '@fontsource/roboto';
 
-const siteURL = env.PUBLIC_SITE_URL || "https://leticiabritto.com";
+const siteURL = env.PUBLIC_SITE_URL;
 const canonicalURL = new URL(Astro.url.pathname, siteURL);
 const instagramURL = env.PUBLIC_INSTAGRAM_URL;
 const facebookURL = env.PUBLIC_FACEBOOK_URL;
@@ -17,7 +18,7 @@ const analyticsWebSiteId = env.PUBLIC_UMAMI_WEBSITE_ID;
 
 const title = `Psicóloga Letícia Brito | ${address} | CRP 12/30305`;
 const description =
-	"Psicoterapia Psicanalítica em Palhoça (Pedra Branca) e Online. Atendimento para adolescentes e adultos, focado em autoconhecimento e saúde mental. CRP 12/30305.";
+  'Psicoterapia Psicanalítica em Palhoça (Pedra Branca) e Online. Atendimento para adolescentes e adultos, focado em autoconhecimento e saúde mental. CRP 12/30305.';
 ---
 
 <html lang="pt-BR">
@@ -44,14 +45,16 @@ const description =
 		<meta property="og:url" content={Astro.url} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content="/og-image.jpg" />
+		<meta property="og:image" content={`${siteURL}logo.webp`} />
+		<meta property="og:image:type" content="image/webp" />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content={Astro.url} />
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content="/og-image.jpg" />
+		<meta property="twitter:image" content={`${siteURL}logo.webp`} />
+		<meta property="twitter:image:type" content="image/webp" />
 
 		<!-- Local Business Schema -->
 		<script
@@ -99,8 +102,8 @@ const description =
 		></script>
 	</head>
 	<body>
-		<Menu client:visible />
+		<Menu client:only="react" />
 		<slot />
-		<ScrollProgress client:visible />
+		<ScrollProgress client:load />
 	</body>
 </html>
