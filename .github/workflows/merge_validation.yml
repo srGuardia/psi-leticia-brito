@@ -37,8 +37,6 @@ jobs:
         with:
           node-version: 24
       - name: Install dependencies (build)
-        env:
-          HUSKY: 0
         run: pnpm install --frozen-lockfile --prod
       - name: Run build
         run: pnpm build
