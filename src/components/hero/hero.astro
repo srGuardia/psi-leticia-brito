@@ -1,0 +1,91 @@
+---
+import avatar from '@/assets/images/avatar.jpg';
+import avatarWebp from '@/assets/images/avatar.webp';
+import { env } from '@/types/env';
+import { Highlighter } from '../ui/highlighter';
+import { TypingAnimation } from '../ui/typing-animation';
+---
+
+<section
+  data-section-theme="dark"
+  class="h-180 w-full overflow-hidden bg-[url(../assets/background.svg)] bg-cover bg-top bg-no-repeat pt-10 md:h-150 md:bg-center md:pt-40"
+  id="hero"
+>
+  <div class="container mx-auto flex h-full flex-col gap-4 md:flex-row">
+    <div class="h-fit self-center md:h-full md:self-baseline">
+      <picture>
+        <source
+          srcset={avatarWebp.src}
+          type="image/webp"
+          class="h-80 w-80 rounded-full object-cover"
+        />
+
+        <img
+          src={avatar.src}
+          alt="foto de perfil"
+          loading="lazy"
+          class="h-80 w-80 rounded-full object-cover"
+        />
+      </picture>
+    </div>
+
+    <div
+      class="flex flex-2 flex-col items-center text-center md:items-start md:text-start"
+    >
+      <div class="w-full">
+        <h2 class="font-bold text-4xl text-white">
+          <TypingAnimation
+            client:load
+            words={["Leticia Brito", "Psicóloga"]}
+            blinkCursor
+            deleteSpeed={50}
+            typeSpeed={90}
+            loop
+          />
+        </h2>
+        <p class="-mt-2 text-md text-white">
+          <Highlighter client:load action="box" color="#FF9800">
+            CRP: 12/30305
+          </Highlighter>
+        </p>
+
+        <p
+          class="my-6 text-center font-normal text-md text-white text-xl md:max-w-2xl md:text-left"
+        >
+          <Highlighter
+            client:load
+            action="highlight"
+            color="var(--brand)"
+            multiline
+          >
+            "O autoconhecimento é a bússola para o desenvolvimento pessoal"
+          </Highlighter>
+        </p>
+
+        <p
+          class="text-center font-normal text-md text-white md:max-w-2xl md:text-left"
+        >
+          Psicóloga Clínica e Organizacional
+        </p>
+
+        <p
+          class="text-center font-normal text-md text-white md:max-w-2xl md:text-left"
+        >
+          Atendimento clínico e consultoria para&nbsp;
+          <Highlighter client:load action="underline" color="var(--brand)">
+            empresas conscientes.
+          </Highlighter>
+        </p>
+      </div>
+
+      <a
+        href={`https://wa.me/${env.PUBLIC_WHATSAPP_NUMBER}?text=Olá%2C%20eu%20gostaria%20de%20marcar%20uma%20sessão%20de%20psicoterapia%20individual.`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-22 w-full max-w-80 rounded-md border px-6 py-4 text-center font-light text-white transition-colors duration-400 hover:bg-gray-300 hover:text-black md:mt-16"
+      >
+        Agende sua consulta
+      </a>
+    </div>
+  </div>
+</section>

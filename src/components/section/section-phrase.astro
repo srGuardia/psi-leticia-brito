@@ -1,0 +1,20 @@
+---
+import { Highlighter } from '../ui';
+import SectionContent from './section.astro';
+---
+
+<SectionContent theme="dark" class="min-h-40 p-4 text-center" id="phrase">
+  <Highlighter
+    client:visible
+    action="highlight"
+    color="#FF9800"
+    isView
+    multiline
+    iterations={5}
+    animationDuration={2000}
+  >
+    <h2 class="mb-4 font-bold font-raleway text-4xl text-white">
+      "Aquilo que você não cura, você transfere."
+    </h2>
+  </Highlighter>
+</SectionContent>

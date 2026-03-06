@@ -1,0 +1,29 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+interface Props {
+  theme?: 'light' | 'dark';
+  class?: string;
+  className?: string;
+  [key: string]: unknown;
+}
+
+const {
+  theme = 'dark',
+  class: classNameAstro,
+  className: classNameReact,
+  ...props
+} = Astro.props;
+const className = classNameAstro || classNameReact;
+---
+
+<section
+  data-section-theme={theme}
+  class={twMerge(
+    "relative min-h-100 w-full overflow-hidden px-8 py-24",
+    className,
+  )}
+  {...props}
+>
+  <slot />
+</section>

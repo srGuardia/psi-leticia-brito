@@ -1,20 +1,19 @@
 ---
-import {
-  Footer,
-  Hero,
-  SectionAbout,
-  SectionInfo,
-  SectionPhrase,
-  SectionServices,
-} from "@/components";
+import Footer from "@/components/footer/footer.astro";
+import Hero from "@/components/hero/hero.astro";
+import SectionAbout from "@/components/section/section-about.astro";
+import SectionInfo from "@/components/section/section-info.astro";
+import SectionPhrase from "@/components/section/section-phrase.astro";
+import SectionServices from "@/components/section/section-services.astro";
+
 import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout>
-  <Hero client:visible />
-  <SectionInfo client:visible />
-  <SectionServices client:visible />
-  <SectionAbout client:visible />
-  <SectionPhrase client:visible />
-  <Footer client:visible />
+  <Hero />
+  <SectionInfo />
+  <SectionServices />
+  <SectionAbout />
+  <SectionPhrase />
+  <Footer />
 </Layout>
