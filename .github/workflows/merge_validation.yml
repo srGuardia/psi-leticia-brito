@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - name: Install dependencies
+      - name: Install dependencies (lint)
         run: pnpm install
       - name: Run format check
         run: pnpm format
@@ -36,7 +36,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - name: Install dependencies
+      - name: Install dependencies (build)
         run: pnpm install --frozen-lockfile --prod
       - name: Run build
         run: pnpm build
