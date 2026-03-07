@@ -1,4 +1,3 @@
-import { Image } from 'astro:assets';
 import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import logo from '@/assets/images/logo.png';
@@ -88,10 +87,10 @@ export function Menu() {
             className="h-full w-full object-contain"
           />
 
-          <Image
-            src={logo}
+          <img
+            src={logo.src}
             alt="Logo"
-            class="h-full w-full object-contain"
+            className="h-full w-full object-contain"
             loading="lazy"
           />
         </picture>
