@@ -13,7 +13,7 @@ import SectionContent from './section.astro';
 
     <div class="flex flex-wrap justify-center gap-6 overflow-hidden lg:gap-8">
       {
-        servicesMock.map((service, index) => (
+        servicesMock.map((service, _index) => (
           <div class="group flex w-full flex-col items-start rounded-[2.5rem] border border-white/60 bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)] sm:w-[calc(50%-12px)] md:p-10 lg:w-[calc(33.33%-22px)] xl:w-[calc(25%-24px)]">
             <div class="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#FAF7FB] text-4xl transition-transform duration-500 group-hover:rotate-3 group-hover:scale-110">
               {service.icon}

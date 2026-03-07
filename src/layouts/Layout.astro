@@ -98,8 +98,11 @@ const description =
 		/>
 
 		<!-- ANALYTICS -->
-		<script defer src={analyticsURL} data-website-id={analyticsWebSiteId}
-		></script>
+		<script
+			is:inline
+			defer
+			src={analyticsURL}
+			data-website-id={analyticsWebSiteId}></script>
 	</head>
 	<body>
 		<Menu client:only="react" />
