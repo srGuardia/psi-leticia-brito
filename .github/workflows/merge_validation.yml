@@ -24,6 +24,8 @@ jobs:
         run: pnpm install
       - name: Run format check
         run: pnpm format
+      - name: Run astro check
+        run: pnpm astro check
 
   build:
     name: Execute build
