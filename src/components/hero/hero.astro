@@ -2,6 +2,7 @@
 import avatar from '@/assets/images/avatar.jpg';
 import avatarWebp from '@/assets/images/avatar.webp';
 import { env } from '@/types/env';
+import { Image } from 'astro:assets';
 import { Highlighter } from '../ui/highlighter';
 import { TypingAnimation } from '../ui/typing-animation';
 ---
@@ -20,10 +21,12 @@ import { TypingAnimation } from '../ui/typing-animation';
           class="h-80 w-80 rounded-full object-cover"
         />
 
-        <img
-          src={avatar.src}
-          alt="foto de perfil"
+        <Image
+          src={avatar}
+          alt="foto de perfil de Leticia Brito"
           loading="eager"
+          width={320}
+          height={320}
           class="h-80 w-80 rounded-full object-cover"
         />
       </picture>

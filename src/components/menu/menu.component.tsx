@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-
 import logo from '@/assets/images/logo.png';
 import { menuMock } from '@/mock';
 import { Icon } from '../icon';
