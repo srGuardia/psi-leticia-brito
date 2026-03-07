@@ -8,7 +8,7 @@ import { TypingAnimation } from '../ui/typing-animation';
 
 <section
   data-section-theme="dark"
-  class="h-180 w-full overflow-hidden bg-[url(../assets/background.svg)] bg-cover bg-top bg-no-repeat pt-10 md:h-150 md:bg-center md:pt-40"
+  class="bg-[url(../assets/background.svg)] bg-cover bg-top bg-no-repeat py-20 md:bg-center md:pt-40"
   id="hero"
 >
   <div class="container mx-auto flex h-full flex-col gap-4 md:flex-row">
@@ -23,7 +23,7 @@ import { TypingAnimation } from '../ui/typing-animation';
         <img
           src={avatar.src}
           alt="foto de perfil"
-          loading="lazy"
+          loading="eager"
           class="h-80 w-80 rounded-full object-cover"
         />
       </picture>
