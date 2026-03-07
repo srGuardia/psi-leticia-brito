@@ -1,0 +1,25 @@
+---
+import { icons, type IconProps } from '@lucide/astro';
+import { twMerge } from 'tailwind-merge';
+
+interface Props extends IconProps {
+  name: keyof typeof icons;
+  class?: string;
+  className?: string;
+}
+
+const {
+  name,
+  class: classNameAstro,
+  className: classNameReact,
+  ...restProps
+} = Astro.props;
+const className = classNameAstro || classNameReact;
+const IconComponent = icons[name];
+---
+
+<IconComponent
+  name={name}
+  class={twMerge("size-16 stroke-1", className)}
+  {...restProps}
+/>

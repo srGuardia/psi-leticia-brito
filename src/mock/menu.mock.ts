@@ -6,7 +6,7 @@ type MenuMockType = {
   icon: IconName;
 };
 
-export const MenuMock: MenuMockType[] = [
+export const menuMock: MenuMockType[] = [
   {
     href: '#hero',
     label: 'Ínicio',

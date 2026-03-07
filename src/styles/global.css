@@ -30,6 +30,10 @@ body {
   @apply bg-zinc-900;
 }
 
+* {
+  @apply antialiased;
+}
+
 @theme {
   --font-sans: var(--font-roboto);
   --font-raleway: var(--font-raleway);
