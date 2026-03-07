@@ -5,11 +5,6 @@ export const servicesMock = [
     description: 'Acompanhamento personalizado para suas necessidades.',
   },
   {
-    icon: '💼',
-    title: 'Orientação profissional',
-    description: 'Escolhas claras e direcionadas, para o seu sucesso.',
-  },
-  {
     icon: '🌿',
     title: 'Apoio à Ansiedade',
     description: 'Estratégias para manejo da ansiedade e do estresse.',
@@ -30,6 +25,11 @@ export const servicesMock = [
     title: 'Brasileiros no exterior',
     description:
       'Acolhimento psicológico para quem vive fora do país e enfrenta desafios de adaptação, identidade e pertencimento.',
+  },
+  {
+    icon: '💼',
+    title: 'Orientação profissional',
+    description: 'Escolhas claras e direcionadas, para o seu sucesso.',
   },
   {
     icon: '🔎',
