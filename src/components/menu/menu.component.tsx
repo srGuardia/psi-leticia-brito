@@ -1,6 +1,6 @@
+import { Image } from 'astro:assets';
 import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-
 import logo from '@/assets/images/logo.png';
 import { menuMock } from '@/mock';
 import { Icon } from '../icon';
@@ -88,10 +88,10 @@ export function Menu() {
             className="h-full w-full object-contain"
           />
 
-          <img
-            src={logo.src}
+          <Image
+            src={logo}
             alt="Logo"
-            className="h-full w-full object-contain"
+            class="h-full w-full object-contain"
             loading="lazy"
           />
         </picture>
